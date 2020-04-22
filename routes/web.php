@@ -20,7 +20,7 @@ Route::get('/about', function(){
     return view('about');
 })->name('about');
 Route::get('/shilka', function(){
-    return view('ZSU234');
+    return view('shilka2');
 })->name('shilka');
 Route::get('/courses','PagesController@course_list')->name('courses');
 Route::get('/lesson/{course_id}/{lesson_id}','PagesController@lesson_info')->name('lesson');
