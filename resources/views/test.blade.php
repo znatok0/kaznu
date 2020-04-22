@@ -164,6 +164,40 @@
                 var r = [ "A1", "A2", "A2", "A0" ];
             }
         }
+        else if(parseInt(course_id) == 6){
+            if(parseInt(lesson_id) == 1) {
+                var q = [ "Q0", "Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7" ];
+                var r = [ "A1", "A1", "A0", "A0", "A1", "A2", "A0", "A2" ];
+            }
+            else if(parseInt(lesson_id) == 2) {
+                var q = [ "Q0", "Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7", "Q8", "Q9", "Q10", "Q11", "Q12", "Q13", "Q14", "Q15" ];
+                var r = [ "A1", "A0", "A0", "A0", "A2", "A2", "A0", "A3", "A0", "A2", "A2", "A0", "A2", "A2", "A2", "A1" ];
+            }
+            else if(parseInt(lesson_id) == 3) {
+                var q = [ "Q0", "Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7", "Q8" ];
+                var r = [ "A2", "A1", "A0", "A0", "A0", "A0", "A3", "A2", "A3" ];
+            }
+            else if(parseInt(lesson_id) == 4) {
+                var q = [ "Q0", "Q1", "Q2", "Q3", "Q4" ];
+                var r = [ "A1", "A2", "A2", "A3", "A0" ];
+            }
+            else if(parseInt(lesson_id) == 5) {
+                var q = [ "Q0", "Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7", "Q8", "Q9", "Q10", "Q11" ];
+                var r = [ "A2", "A0", "A3", "A2", "A1", "A3", "A0", "A0", "A3", "A0", "A1", "A0" ];
+            }
+            else if(parseInt(lesson_id) == 6) {
+                var q = [ "Q0", "Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7" ];
+                var r = [ "A3", "A0", "A2", "A0", "A1", "A1", "A0", "A1" ];
+            }
+            else if(parseInt(lesson_id) == 7) {
+                var q = [ "Q0", "Q1", "Q2", "Q3" ];
+                var r = [ "A1", "A3", "A2", "A0" ];
+            }
+            else if(parseInt(lesson_id) == 9) {
+                var q = [ "Q0", "Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7","Q8", "Q9", "Q10", "Q11", "Q12", "Q13", "Q14","Q15", "Q16", "Q17", "Q18","Q19", "Q20", "Q21", "Q22", "Q23"];
+                var r = [ "A1", "A2", "A0", "A0", "A0", "A0", "A1", "A1","A3", "A1", "A3", "A0", "A3", "A0", "A0","A0", "A1", "A1", "A0","A1", "A1", "A1", "A2", "A2"];
+            }
+        }
         displayresult = 1;
         function checkTest() { 
         var bal = 0; 
@@ -182,7 +216,7 @@
             +q.length+'<br /><strong>Правильных ответов:</strong> '+bal+
             '<br /><a style="border-bottom: 1px dotted; cursor: pointer;" onClick="window.location.reload(true);">Пройти еще раз</a>'; 
         }
-        else if(q.length == bal){console.log(typeof lessons_quantity);
+        else if(q.length == bal){
             if(int_lesson_num < int_lessons_quantity){
                 I('test_result').innerHTML='<h3>Тест завершен!</h3><strong>Всего вопросов:</strong> '
                 +q.length+'<br /><strong>Правильных ответов:</strong> '+bal+

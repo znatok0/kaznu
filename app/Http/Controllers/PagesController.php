@@ -39,4 +39,8 @@ class PagesController extends Controller
         $lesson_id)->select('lesson_number')->get())[0];
         return view('test', compact('test_questions','lesson_num','current_lesson_num'));
     }
+
+    public function store_grade(){
+        
+    }
 }
