@@ -1,20 +1,23 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="ru">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>Военная кафедра КазНУ</title>
 
     <!-- Scripts -->
-    <script src="jquery-3.4.1.min.js"></script>
+    {{-- <script src="jquery-3.4.1.min.js"></script> --}}
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/jquery.fancybox.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <script src="{{ asset('js/main.js') }}"></script>
-
+    <script src="https://kit.fontawesome.com/8a001c22ef.js" crossorigin="anonymous"></script>
+    <script src="./js/jquery.fancybox.min.js"></script>
+    <script src="./js/main.js"></script>
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -25,6 +28,10 @@
     <link href="{{ asset('css/size.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jquery.fancybox.min.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('css/materialize.min.css') }}" rel="stylesheet"> --}}
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap&subset=cyrillic"
+    rel="stylesheet"
+    />
 </head>
 <body>
     <header class="header">
@@ -48,21 +55,13 @@
                   <a href="{{ route('about') }}" class="menu__links">О кафедре</a>
                 </li>
                 <li class="menu__li">
-                  <a href="./students.html" class="menu__links">Поступающим</a>
+                  <a href="{{ route('students') }}"  class="menu__links">Поступающим</a>
                 </li>
-                <li class="menu__li">
-                  <a href="./teachers.html" class="menu__links"
+                <!-- <li class="menu__li">
+                  <a href="./teachers.html"  class="menu__links"
                     >Преподавательский состав</a
                   >
-                </li>
-                <li class="menu__li">
-                  <a href="./international.html" class="menu__links"
-                    >Международное сотрудничество</a
-                  >
-                </li>
-                <li class="menu__li">
-                  <a href="./contacts.html" class="menu__links">Контакты</a>
-                </li>
+                </li> -->
               </ul>
             </div>
           </div>
@@ -75,7 +74,7 @@
     </header>
     <div class="search-bar">
       <div class="search-bar-container w90m0auto">
-        <span class="searching__click"><i class="fas fa-search"></i></span>
+        <span class="searching__click"></span>
         <ul class="navbar-nav ml-auto">
           <!-- Authentication Links -->
           @guest
@@ -110,111 +109,32 @@
       </div>
     </div>
     <div id="app">
-      <main class="py-4" style="padding-top:0; margin-left:5%; margin-right:5%;">
+      <main style="padding-top:0;">
         @yield('content')
       </main>
     </div>
-  <footer class="page-footer font-small indigo" style="background:linear-gradient(to right, #06162F, #0D345F 100%)">
+    <footer class="footer">
+      <div class="footer-container w90m0auto ">
 
-    <!-- Footer Links -->
-    <div class="container text-center text-md-left">
-
-      <!-- Grid row -->
-      <div class="row">
-
-        <!-- Grid column -->
-        <div class="col-md-3 mx-auto">
-
-          <!-- Links -->
-          <p>© Казахский национальный университет им. аль-Фараби</p>
-
-
+        <div class="footer-text">
+          <div class="footer-address-text">
+          <p>© Казахский национальный университет им. аль-Фараби <br/> Республика Казахстан, Алматы, 050040 пр. аль-Фараби, 71 <br/> Тел. 8 (727) 377-33-33, 8 (727) 377-33-30 <br/> Факс +7 (727) 377-33-44 <br/> info@kaznu.kz</p>
+          </div>
+          <div class="footer-contact-text">
+          <p class="numb">Контакт центр <br/> +7 (727) 377-33-30</p>
+          </div>
+          <div class="footer-center-text">
+          <p class="numb">Приемная комиссия <br/> +7 (727) 377-33-30</p>
+          </div>
         </div>
-        <!-- Grid column -->
 
-        <hr class="clearfix w-100 d-md-none">
-
-        <!-- Grid column -->
-        <div class="col-md-3 mx-auto">
-
-          <!-- Links -->
-          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!">Link 1</a>
-            </li>
-            <li>
-              <a href="#!">Link 2</a>
-            </li>
-            <li>
-              <a href="#!">Link 3</a>
-            </li>
-            <li>
-              <a href="#!">Link 4</a>
-            </li>
-          </ul>
-
+        <div class="socials">
+          <a href="https://www.instagram.com/vk_kaznu/" class="social-links" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.instagram.com/vk_kaznu/" class="social-links" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com/vk_kaznu/" class="social-links" target="_blank"><i class="fab fa-telegram"></i></a>
         </div>
-        <!-- Grid column -->
-
-        <hr class="clearfix w-100 d-md-none">
-
-        <!-- Grid column -->
-        <div class="col-md-3 mx-auto">
-
-          <!-- Links -->
-          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!">Link 1</a>
-            </li>
-            <li>
-              <a href="#!">Link 2</a>
-            </li>
-            <li>
-              <a href="#!">Link 3</a>
-            </li>
-            <li>
-              <a href="#!">Link 4</a>
-            </li>
-          </ul>
-
-        </div>
-        <!-- Grid column -->
-
-        <hr class="clearfix w-100 d-md-none">
-
-        <!-- Grid column -->
-        <div class="col-md-3 mx-auto">
-
-          <!-- Links -->
-          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!">Link 1</a>
-            </li>
-            <li>
-              <a href="#!">Link 2</a>
-            </li>
-            <li>
-              <a href="#!">Link 3</a>
-            </li>
-            <li>
-              <a href="#!">Link 4</a>
-            </li>
-          </ul>
-
-        </div>
-        <!-- Grid column -->
 
       </div>
-      <!-- Grid row -->
-
-    </div>
-
-  </footer>
+    </footer>
 </body>
 </html>

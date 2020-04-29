@@ -25,3 +25,6 @@ Route::get('/shilka', function(){
 Route::get('/courses','PagesController@course_list')->name('courses');
 Route::get('/lesson/{course_id}/{lesson_id}','PagesController@lesson_info')->name('lesson');
 Route::get('/test/{course_id}/{lesson_id}', 'PagesController@test_info')->name('test');
+Route::get('/students', function(){
+    return view('students');
+})->name('students');
