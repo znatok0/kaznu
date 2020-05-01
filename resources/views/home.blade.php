@@ -4,7 +4,7 @@
 <div class="container">
     <div class="container-fluid">
         <div class="row">
-          <div class="col-sm-3 col-md-2 sidebar" id="sidebar-left">
+          {{-- <div class="col-sm-3 col-md-2 sidebar" id="sidebar-left">
             <ul class="nav nav-sidebar">
                 <li>
                     <a href="{{ route('courses') }}" class="waves-effect waves-orange pointer">Мои курсы</a>
@@ -16,8 +16,8 @@
                     @endif
                 </li>
             </ul>
-          </div>
-          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          </div> --}}
+          {{-- <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <div class="row justify-content-center">
                 @if($user_role == 1) 
                     <p>Личный кабинет администратора</p>
@@ -27,7 +27,8 @@
                     <p>Личный кабинет студента</p>
                 @endif           
             </div>
-          </div>
+          </div> --}}
+          <h3 id="content-header" style="text-align: center;">Гид по платформе</h3>
         </div>
       </div>
 </div>

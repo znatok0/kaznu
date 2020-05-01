@@ -25,11 +25,9 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/size.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/materialize.min.css') }}" />
+    <link href="{{ asset('css/crm/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jquery.fancybox.min.css') }}" rel="stylesheet">
-    {{-- <link href="{{ asset('css/materialize.min.css') }}" rel="stylesheet"> --}}
     <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
@@ -46,10 +44,10 @@
         <div class="logo-crm">
           <img class="logo-crm__img" src="./img/mainLogo.png" alt="logo" />
           <div class="logo-crm__text">
-            <strong class="logo-crm__main"
+            <strong class="logo-crm__main" style="color:white;"
               >КАЗАХСКИЙ НАЦИОНАЛЬНЫЙ УНИВЕРСИТЕТ</strong
             >
-            <span class="logo-crm__des">ИМЕНИ АЛЬ-ФАРАБИ</span>
+            <span class="logo-crm__des" style="color:white;">ИМЕНИ АЛЬ-ФАРАБИ</span>
           </div>
         </div>
       </div>
@@ -91,58 +89,33 @@
       </ul>
       </div>
     </div>
+    <ul class="sidenav app-sidenav open" style="display: block;">
+      <li>
+        <a href="{{ route('home') }}" class="waves-orange pointer"><i class="fa fa-caret-left" style="margin-right:0;width:10px;"></i>Назад</a>
+        <a href="" onclick="changeContent('pc')" class="waves-orange pointer">Личный Кабинет</a>
+        <a href="#" onclick="changeContent('3d')" class="waves-orange pointer">3D Визуализация</a>
+        <a href="#" onclick="changeContent('materials')" class="waves-orange pointer">Материалы</a>
+        <a href="#" onclick="changeContent('lib')" class="waves-orange pointer">Библиотека</a>
+      </li>
+    </ul>
     <div id="app">
       <main style="padding-top:0;">
-        <div class="container">
-          <div class="container-fluid">
-              <div class="row">
-                {{-- <div class="col-sm-3 col-md-2 sidebar" id="sidebar-left">
-                  <ul class="nav nav-sidebar">
-                      <li>
-                          <a href="#" class="waves-effect waves-orange pointer">ЗСУ 23-4 "Шилка"</a>
-                          <a href="./testing.html" class="waves-effect waves-orange pointer">ЗСУ "Стрела-10"</a>
-                      </li>
-                  </ul>
-                </div> --}}
-                {{-- <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> --}}
-                  <?php 
-                    $arrContextOptions=array(
-                        "ssl"=>array(
-                            "verify_peer"=>false,
-                            "verify_peer_name"=>false,
-                        ),
-                    );  
-                    $html=file_get_contents('https://www.kaznu.kz/Content/%D0%97%D0%A1%D0%A3-23-4%20%D0%A8%D0%B8%D0%BB%D0%BA%D0%B0/page1.html', false, stream_context_create($arrContextOptions));
-                  ?>
-                  <div class="row justify-content-center">
-                    <p style="font-size:15px;">Мои курсы</p> 
-                  </div>
-                  <table class="courses-table">
-                    <tbody>
-                    <?php 
-                      $lesson_id = 1;
-                    ?>
-                    @foreach($courses as $courseKey=>$course)
-                    <tr>
-                      <td>
-                        <a href="/lesson/{{$course->id}}/{{$lesson_id}}"> 
-                          {{$course->course_name}}
-                        </a>
-                      </td>
-                      <td>
-                        Преподаватель: {{json_decode(DB::table('users')->select('name')->where('id',$course->teacher_id)->get())[0]->name}}
-                      </td>
-                    </tr>
-                    @endforeach
-                    </tbody>
-                  </table>
-                {{-- </div> --}}
-              </div>
-            </div>
+      <div class="cab-content" style="margin-top:0px;">
+        <div class="page-title">
+          <h3 id="content-header">Личный кабинет</h3>
+        </div>
       </div>
       </main>
     </div>
-    <footer class="footer">
+    <script>
+      function changeContent(content_stuff){
+          $3d = document.getElementById('content-header');
+          if(content_stuff == "3d"){
+            $3d.innerHtml = 'hello';
+          }
+      }
+    </script>
+    {{-- <footer class="footer">
       <div class="footer-container w90m0auto ">
 
         <div class="footer-text">
@@ -164,6 +137,6 @@
         </div>
 
       </div>
-    </footer>
+    </footer> --}}
 </body>
 </html>

@@ -269,4 +269,39 @@
 
 .three-d-text {
     margin-bottom: 20px;
+}.footer {
+    background-color: #1A4575;
+    height: 225px;
+    color: #ffffff;
+    font-size: 1vw;
+    font-weight: 400;
+    /* text-transform: uppercase; */
+    line-height: 1.5;
+}
+
+.footer-text {
+    display: flex;
+    padding-top: 30px;
+    margin-bottom: 20px;
+}
+
+.footer-address-text {
+    margin-right: 60px;
+}
+
+.footer-contact-text {
+    margin-right: 60px;
+}
+
+.social-links {
+    color: #1a4575;
+    width: 150px;
+    height: 150px;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+.footer-container {
+    display: block;
 }
