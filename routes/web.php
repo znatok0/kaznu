@@ -22,6 +22,12 @@ Route::get('/about', function(){
 Route::get('/shilka', function(){
     return view('shilka');
 })->name('shilka');
+Route::get('/strela', function(){
+    return view('strela');
+})->name('strela');
+Route::get('/zsu23-2', function(){
+    return view('zsu232');
+})->name('zsu23-2');
 Route::get('/courses','PagesController@course_list')->name('courses');
 Route::get('/lesson/{course_id}/{lesson_id}','PagesController@lesson_info')->name('lesson');
 Route::get('/test/{course_id}/{lesson_id}', 'PagesController@test_info')->name('test');

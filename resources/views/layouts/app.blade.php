@@ -10,13 +10,11 @@
 
     <!-- Scripts -->
     {{-- <script src="jquery-3.4.1.min.js"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/jquery.fancybox.min.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="https://kit.fontawesome.com/8a001c22ef.js" crossorigin="anonymous"></script>
-    <script src="./js/jquery.fancybox.min.js"></script>
-    <script src="./js/main.js"></script>
     
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
