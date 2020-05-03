@@ -9,13 +9,11 @@
     <title>Военная кафедра КазНУ</title>
 
     <!-- Scripts -->
-    {{-- <script src="jquery-3.4.1.min.js"></script> --}}
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/jquery.fancybox.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="https://kit.fontawesome.com/8a001c22ef.js" crossorigin="anonymous"></script>
-    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -25,7 +23,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/size.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jquery.fancybox.min.css') }}" rel="stylesheet">
-    {{-- <link href="{{ asset('css/materialize.min.css') }}" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link
     href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap&subset=cyrillic"
     rel="stylesheet"
@@ -38,11 +36,10 @@
           <div class="navbar__logo">
             <div class="logo" onclick="location.href='{{ url('/') }}'">
               <img class="logo__img" src="{{ asset('img/mainLogo.png') }}" alt="logo"/>
-              <strong class="logo__text"
-                >КАЗАХСКИЙ <br />
+              <strong class="logo__text">
+                КАЗАХСКИЙ <br />
                 НАЦИОНАЛЬНЫЙ <br />
-                УНИВЕРСИТЕТ</strong
-              >
+                УНИВЕРСИТЕТ</strong>
               <span class="logo__des">ИМЕНИ АЛЬ-ФАРАБИ</span>
             </div>
           </div>
@@ -55,6 +52,11 @@
                 <li class="menu__li">
                   <a href="{{ route('students') }}"  class="menu__links">Поступающим</a>
                 </li>
+                @if(Auth::check())
+                  <li class="menu__li">
+                    <a href="{{ route('courses') }}"  class="menu__links">Перейти к обучению</a>
+                  </li>
+                @endif
                 <!-- <li class="menu__li">
                   <a href="./teachers.html"  class="menu__links"
                     >Преподавательский состав</a
@@ -77,7 +79,7 @@
           <!-- Authentication Links -->
           @guest
               <li class="nav-item">
-                  <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                  <a class="nav-link" href="{{ route('login') }}" style="color:white;">{{ __('Login') }}</a>
               </li>
               {{-- @if (Route::has('register'))
                   <li class="nav-item">
@@ -86,14 +88,14 @@
               @endif --}}
           @else
               <li class="nav-item dropdown">
-                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                      {{ Auth::user()->name }} <span class="caret"></span>
+                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
+                      {{ Auth::user()->name }}
                   </a>
 
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="{{ route('logout') }}"
                          onclick="event.preventDefault();
-                                       document.getElementById('logout-form').submit();">
+                                       document.getElementById('logout-form').submit();" >
                           {{ __('Logout') }}
                       </a>
 
@@ -102,8 +104,13 @@
                       </form>
                   </div>
               </li>
-          @endguest
-      </ul>
+            @endguest
+        </ul>
+      <script>
+        function openUl(){
+          document.getElementById('ul-top-open').classList.toggle("show");
+        }
+      </script>
       </div>
     </div>
     <div id="app">

@@ -43,7 +43,7 @@
     </div>
 
     <h2 class="title-tables">Нормативы по физической подготовке</h2>
-    <div class="table-info">
+    <div class="table-info" style="background-color:#f9fafc;">
       <div class="table-title">
         <h4 class="table-title-text">Для студентов – юношей </h4>
         <h4 class="table-title-text">Для студентов – девушек</h4>
@@ -106,17 +106,17 @@
 
     <h2 class="title-teachers">Руководство кафедры</h2>
     <div class="boss-info">
-      <div class="boss-cards">
+      <div class="boss-cards">  
+        <div class="boss-card">
+          <img src="./img/boss-3.jpg" alt="boss-3" class="boss-img">
+          <p class="boss-text">Заместитель начальника военной кафедры, <br>полковник <br> Тоекин Мурат Рафихулы</p>
+        </div>  
         <div class="boss-card">
           <img src="./img/boss-1.jpg" alt="boss-1" class="boss-img">
           <p class="boss-text">Начальник военной кафедры, <br>полковник <br> Ажимов Олег Вали-Ахметович</p>
-        </div>       
-        <div class="boss-card">
-          <img src="./img/boss-2.jpg" alt="boss-2" class="boss-img">
-          <p class="boss-text">Заместитель начальника военной кафедры, <br>полковник <br> Тоекин Мурат Рафихулы</p>
         </div>    
         <div class="boss-card">
-          <img src="./img/boss-3.jpg" alt="boss-3" class="boss-img">
+          <img src="./img/boss-2.jpg" alt="boss-2" class="boss-img">
           <p class="boss-text">Заместитель начальника военной кафедры, <br>полковник <br> Скоков Олег Юрьевич</p>
         </div>
       </div>

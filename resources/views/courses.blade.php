@@ -12,14 +12,12 @@
 
     <!-- Scripts -->
     {{-- <script src="jquery-3.4.1.min.js"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/jquery.fancybox.min.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="https://kit.fontawesome.com/8a001c22ef.js" crossorigin="anonymous"></script>
-    <script src="./js/jquery.fancybox.min.js"></script>
-    <script src="./js/main.js"></script>
-    
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -41,6 +39,7 @@
   <nav class="navbar">
     <div class="nav-wrapper">
       <div class="navbar-left">
+        <div class="logo" onclick="location.href='{{ url('/') }}'" style="cursor:pointer;">
         <div class="logo-crm">
           <img class="logo-crm__img" src="./img/mainLogo.png" alt="logo" />
           <div class="logo-crm__text">
@@ -49,6 +48,7 @@
             >
             <span class="logo-crm__des" style="color:white;">ИМЕНИ АЛЬ-ФАРАБИ</span>
           </div>
+        </div>
         </div>
       </div>
     </div>
@@ -92,10 +92,12 @@
     <ul class="sidenav app-sidenav open" style="display: block;">
       <li>
         <a href="{{ route('home') }}" class="waves-orange pointer"><i class="fa fa-caret-left" style="margin-right:0;width:10px;"></i>Назад</a>
-        <a href="" onclick="changeContent('pc')" class="waves-orange pointer">Личный Кабинет</a>
-        <a href="#" onclick="changeContent('3d')" class="waves-orange pointer">3D Визуализация</a>
-        <a href="#" onclick="changeContent('materials')" class="waves-orange pointer">Материалы</a>
-        <a href="#" onclick="changeContent('lib')" class="waves-orange pointer">Библиотека</a>
+        {{-- @if({{ json_decode(DB::table('users')->select('role_id')->where('id',Auth::id())->get())[0]->role_id == 1 }})
+          <a href="#" onclick="getMessage('courses')" class="waves-orange pointer">Панель администратора</a>
+        @endif --}}
+        <a href="#" onclick="getMessage('courses')" class="waves-orange pointer">Курсы</a>
+        <a href="#" onclick="getMessage('3d')" class="waves-orange pointer">3D Визуализация</a>
+        {{-- <a href="#" onclick="getMessage('lib')" class="waves-orange pointer">Библиотека</a> --}}
       </li>
     </ul>
     <div id="app">
@@ -104,6 +106,63 @@
         <div class="page-title">
           <h3 id="content-header">Личный кабинет</h3>
         </div>
+        <div class="container" style="width:100%;">
+          <div class="row">
+            <div class="col-md-6">
+              <ul id="courses-list" style="display: none;">
+                @foreach($courses as $courseKey=>$course)
+                  <li><a href="#" onclick="getMessage('{{$course->id}}')">{{$course->course_name}}</a></li>
+                @endforeach
+              </ul>
+              <ul id="3d-models" style="display: none;">
+                <li><a href="{{ route('shilka') }}" target="_blank">"ЗСУ 23-4 Шилка"</a></li>
+                <li><a href="{{ route('strela') }}" target="_blank">"Стрела-10"</a></li>
+                <li><a href="{{ route('zsu23-2') }}" target="_blank">"ЗУ 23-2"</a></li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul id="strela" style="display: none;">
+                @foreach($course1_lessons as $lessonKey=>$lesson)
+                  <li>{{$lesson->lesson_name}}</li>
+                @endforeach
+              </ul>
+              <ul id="shilka" style="display: none;">
+                @foreach($course2_lessons as $lessonKey=>$lesson)
+                  <li>{{$lesson->lesson_name}}</li>
+                @endforeach
+              </ul>
+              <ul id="zu232" style="display: none;">
+                @foreach($course1_lessons as $lessonKey=>$lesson)
+                  <li>{{$lesson->lesson_name}}</li>
+                @endforeach
+              </ul>
+            </div>
+          </div>
+        </div>
+        <script>
+          function getMessage(str) {
+            $courses_block = document.getElementById('courses-list');
+            $models_block = document.getElementById('3d-models');
+            $course1 = document.getElementById('strela');
+            $course2 = document.getElementById('shilka');
+            $course3 = document.getElementById('zu232');
+            if(str == 'courses'){
+              if($models_block.style.display == "block"){
+                $models_block.style.display = "none";
+              }
+              $courses_block.style.display = "block";
+              if(str == '4'){
+                $course1.style.display = "block";
+              }
+            }
+            else if(str == '3d'){
+              if($courses_block.style.display == "block"){
+                $courses_block.style.display = "none";
+              }
+              $models_block.style.display = "block";
+            }
+          }
+       </script>
       </div>
       </main>
     </div>

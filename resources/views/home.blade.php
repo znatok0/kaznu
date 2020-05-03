@@ -1,36 +1,41 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="container-fluid">
-        <div class="row">
-          {{-- <div class="col-sm-3 col-md-2 sidebar" id="sidebar-left">
-            <ul class="nav nav-sidebar">
-                <li>
-                    <a href="{{ route('courses') }}" class="waves-effect waves-orange pointer">Мои курсы</a>
-                    <a href="./testing.html" class="waves-effect waves-orange pointer">Учебные пособия</a>
-                    <a href="./library.html" class="waves-effect waves-orange pointer" onclick="showElectronic()">Электронные издания</a>
-                    @if($user_role == 1)
-                        <a href="#">Список курсов</a>
-                        <a href="#">Список студентов и преподавателей</a>
-                    @endif
-                </li>
-            </ul>
-          </div> --}}
-          {{-- <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <div class="row justify-content-center">
-                @if($user_role == 1) 
-                    <p>Личный кабинет администратора</p>
-                @elseif($user_role == 2)
-                    <p>Личный кабинет преподавателя</p>
-                @elseif($user_role == 3)
-                    <p>Личный кабинет студента</p>
-                @endif           
-            </div>
-          </div> --}}
-          <h3 id="content-header" style="text-align: center;">Гид по платформе</h3>
+    <div class="guide" style="margin:2%;">
+        <h3 id="content-header" style="text-align: center;">Гид по платформе</h3>
+        <p class="study-content-text" style="margin-left:12%; margin-right:12%;">
+            Данная платформа разработана, как вспомогательная образовательная система, для предоставления студентам 
+            возможности изучать учебно-методическую базу, при помощи передовых технологий разработки веб-систем и 
+            систем 3D моделирования.
+        </p>
+        <div class="student-info">
+        <div id="accordeon" style="margin:auto; width:50%; border:none;">
+          <div class="acc-head">
+            Как я могу использовать данную платформу?
+          </div>
+          <div class="acc-body">
+            Данная платформа позволяет быстро и эффективно изучать осваивать материал на примере 3D моделей и сдачи тестов.
+          </div>
+          <div class="acc-head">
+            Записываются ли мои оценки?
+          </div>
+          <div class="acc-body">
+            Да, оценки записываются, но только с целью отслеживания лично прогресса каждого студента.
+          </div>
+          <div class="acc-head">
+            Какие учебно-методические пособия использует данная платформа?
+          </div>
+          <div class="acc-body">
+            Весь учебно-методический материал является ли работой, написанной преподавателями кафедры, либо утвержденный ими.
+          </div>
+          <div class="acc-head">
+            Как часто я могу использовать данный ресурс?
+          </div>
+          <div class="acc-body">
+            Данный ресурс будет все время в доступе для курсантов военной кафедры КазНУ им. аль-Фараби
+          </div>  
         </div>
-      </div>
-</div>
+        </div>  
+    </div>
 @endsection
-<script src="{{ asset('js/home-js.js') }}">
+{{-- <script src="{{ asset('js/home-js.js') }}"> --}}
