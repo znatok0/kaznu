@@ -231,4 +231,18 @@
         I('test_result').scrollIntoView(); 
         }
     </script>
+    <style>
+        main{
+            padding-top: 10px;
+            width: 70%;
+            margin: 0 auto;
+        }
+        input.submit{
+            margin: 5px 0 10px 0;
+            background-color: #0094ce;
+            color: white;
+            padding: 5px;
+            border-radius: 10px;
+        }
+    </style>
 @endsection

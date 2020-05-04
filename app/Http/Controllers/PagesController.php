@@ -43,8 +43,10 @@ class PagesController extends Controller
     public function lesson_info($course_id,$lesson_number){
         $current_lesson = json_decode(Lesson::where('course_id',$course_id)
         ->where('lesson_number',$lesson_number)->get())[0];
-        $all_lessons = json_decode(Lesson::orderBy('lesson_number')->get());
-        return view('lesson', compact('current_lesson','all_lessons'));
+        $all_lessons1 = json_decode(Lesson::orderBy('lesson_number')->where('course_id','4')->orderBy('id')->get());
+        $all_lessons2 = json_decode(Lesson::orderBy('lesson_number')->where('course_id','5')->orderBy('id')->get());
+        $all_lessons3 = json_decode(Lesson::orderBy('lesson_number')->where('course_id','6')->orderBy('id')->get());
+        return view('lesson', compact('current_lesson','all_lessons1','all_lessons2','all_lessons3'));
     }
 
     public function test_info($course_id,$lesson_id){

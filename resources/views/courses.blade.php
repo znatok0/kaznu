@@ -111,16 +111,42 @@
             <div class="col-md-6">
               <ul id="courses-list" style="display: none;">
                 @foreach($courses as $courseKey=>$course)
-                  <li><a href="#" onclick="getMessage('{{$course->id}}')">{{$course->course_name}}</a></li>
+                <li id="li-lists"><a href="/lesson/{{$course->id}}/1" id="a-lists" onclick="getMessage('{{$course->id}}')">{{$course->course_name}}</a></li><hr class="hr-line">
                 @endforeach
               </ul>
-              <ul id="3d-models" style="display: none;">
-                <li><a href="{{ route('shilka') }}" target="_blank">"ЗСУ 23-4 Шилка"</a></li>
-                <li><a href="{{ route('strela') }}" target="_blank">"Стрела-10"</a></li>
-                <li><a href="{{ route('zsu23-2') }}" target="_blank">"ЗУ 23-2"</a></li>
+              <ul id="3d-models" style="display: none; width:40%;">
+                <li id="li-lists"><a href="{{ route('shilka') }}" id="a-lists" target="_blank">"ЗСУ 23-4 Шилка"</a></li><hr class="hr-line">
+                <li id="li-lists"><a href="{{ route('strela') }}" id="a-lists" target="_blank">"Стрела-10"</a></li><hr class="hr-line">
+                <li id="li-lists"><a href="{{ route('zsu23-2') }}" id="a-lists" target="_blank">"ЗУ 23-2"</a></li><hr class="hr-line">
               </ul>
             </div>
-            <div class="col-md-6">
+            <style>
+              ul#courses-list{
+                width:40%;
+              }
+              .hr-line{
+                opacity:0.4;
+              }
+              #li-lists{
+                background-color: white;
+                color: #0094ce;
+                /* width: 13%; */
+                padding: 8px 8px 8px 14px;
+                border-radius: 5px;
+                margin:5px 0 5px 0;
+              }
+              #a-lists{
+                color:#0094ce;
+              }
+              #li-list:hover{
+                background-color: #0094ce;
+                color: white;
+              }
+              #a-list:hover{
+                color:white;
+              }
+            </style>
+            {{-- <div class="col-md-6">
               <ul id="strela" style="display: none;">
                 @foreach($course1_lessons as $lessonKey=>$lesson)
                   <li>{{$lesson->lesson_name}}</li>
@@ -136,7 +162,7 @@
                   <li>{{$lesson->lesson_name}}</li>
                 @endforeach
               </ul>
-            </div>
+            </div> --}}
           </div>
         </div>
         <script>
